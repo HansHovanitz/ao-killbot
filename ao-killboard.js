@@ -186,6 +186,10 @@ client.on('message', message => {
             message.reply('pong');
         }
 
+        else if (command === 'cow') {
+            message.reply('moo');
+        }
+
         else if (command === 'kbinfo') {
             request({
                 json: true,
