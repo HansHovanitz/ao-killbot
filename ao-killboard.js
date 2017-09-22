@@ -210,6 +210,10 @@ client.on('message', message => {
                 })
             }
         }
+
+        else if (command === 'cow') {
+            message.reply('moo');
+        }
     }
 });
 
