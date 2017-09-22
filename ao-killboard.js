@@ -201,7 +201,7 @@ client.on('message', message => {
 
         // [ADMIN] - clear config.botChannel messages
         else if (command === 'kbclear') {
-            if (process.env.admins.includes(message.author.id) && message.channel.id == process.env.botChannel) {
+            if (config.admins.includes(message.author.id) && message.channel.id == process.env.botChannel) {
                 message.channel.send('Clearing Killboard').then(msg => {
                     msg.channel.fetchMessages().then(messages => {
                         message.channel.bulkDelete(messages);
