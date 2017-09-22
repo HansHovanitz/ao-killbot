@@ -72,7 +72,7 @@ function parseKills(events) {
             // Alliance KILL
             if (kill.Killer.AllianceName.toLowerCase() == config.allianceName.toLowerCase() || kill.Victim.AllianceName.toLowerCase() == config.allianceName.toLowerCase()) {
                 postKill(kill);
-            } else if (kill.Killer.GuildName.toLowerCase() == config.guildName.toLowerCase() || kill.Victim.GuildName.toLowerCase() == config.guildName.toLowerCase()) {
+            } else if (kill.Killer.GuildName.toLowerCase() == process.env.guildName.toLowerCase() || kill.Victim.GuildName.toLowerCase() == process.env.guildName.toLowerCase()) {
                 postKill(kill);
             } else {
                 count++;
@@ -84,9 +84,9 @@ function parseKills(events) {
     // console.log('- Skipped ' + count + ' kills');
 }
 
-function postKill(kill, channel = config.botChannel) {
+function postKill(kill, channel = process.env.botChannel) {
     var victory = false;
-    if (kill.Killer.AllianceName.toLowerCase() == config.allianceName.toLowerCase() || kill.Killer.GuildName.toLowerCase() == config.guildName.toLowerCase()) {
+    if (kill.Killer.AllianceName.toLowerCase() == config.allianceName.toLowerCase() || kill.Killer.GuildName.toLowerCase() == process.env.guildName.toLowerCase()) {
         victory = true;
     }
 
@@ -219,7 +219,7 @@ client.on('message', message => {
 
         // [ADMIN] - clear config.botChannel messages
         else if (command === 'kbclear') {
-            if (config.admins.includes(message.author.id) && message.channel.id == config.botChannel) {
+            if (config.admins.includes(message.author.id) && message.channel.id == process.env.botChannel) {
                 message.channel.send('Clearing Killboard').then(msg => {
                     msg.channel.fetchMessages().then(messages => {
                         message.channel.bulkDelete(messages);
@@ -231,4 +231,4 @@ client.on('message', message => {
     }
 });
 
-client.login(config.token);
+client.login(process.env.token);

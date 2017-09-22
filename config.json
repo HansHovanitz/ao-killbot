@@ -1,12 +1,12 @@
 {
 	"cmdPrefix": "!",
 	"allianceName": "<NONE>",
-	"guildName": "URSUS NIX",
+	"guildName": "<NONE>",
 	"username": "AO-Killbot",
 	"admins": [
 		""
 	],
-	"botChannel": "359880408038506506",
+	"botChannel": "",
 	"playingGame": "Albion Killboard Bot",
-	"token": "MzU5ODc4NzEyMTcyMzQ3NDA1.DKNk9Q.esXEYWucZqjFe-nvj1Bop2UKOiM"
+	"token": ""
 }
